@@ -1,6 +1,7 @@
 package com.example.recyclerviewtest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -22,5 +23,13 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item(R.drawable.ic_android, "Line 1", "Line 2"));
         items.add(new Item(R.drawable.ic_apps, "Line 1", "Line 2"));
         items.add(new Item(R.drawable.ic_folder, "Line 1", "Line 2"));
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        adapter = new ItemAdapter(items);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 }
