@@ -8,7 +8,10 @@ public class Item {
     public Item(int imageResource, String firstText, String secondText) {
         this.imageResource = imageResource;
         this.firstText = firstText;
-        this.secondText = secondText;
+        this.secondText =  secondText;
+    }
+
+    public Item(int ic_android) {
     }
 
     public int getImageResource() {
