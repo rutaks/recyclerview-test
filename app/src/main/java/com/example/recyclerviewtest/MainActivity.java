@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,16 +41,22 @@ public class MainActivity extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = Integer.parseInt(editTextInsert.getText().toString());
-                insertItem(position);
+                String value = editTextInsert.getText().toString();
+                if (isValidNumber(value)){
+                    int position = Integer.parseInt(editTextInsert.getText().toString());
+                    insertItem(position);
+                }
             }
         });
 
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = Integer.parseInt(editTextRemove.getText().toString());
-                removeItem(position);
+                String value = editTextRemove.getText().toString();
+                if (isValidNumber(value)){
+                    int position = Integer.parseInt(editTextRemove.getText().toString());
+                    removeItem(position);
+                }
             }
         });
     }
@@ -79,5 +86,23 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item(R.drawable.ic_android, "Line 1", "Line 2"));
         items.add(new Item(R.drawable.ic_apps, "Line 1", "Line 2"));
         items.add(new Item(R.drawable.ic_folder, "Line 1", "Line 2"));
+    }
+
+    public boolean isValidNumber(String s){
+        if (s.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Make Sure Value Is Set", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        try {
+            int position = Integer.parseInt(s);
+            if (position > items.size()) {
+                Toast.makeText(MainActivity.this, "Invalid Value", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (Exception e){
+            Toast.makeText(MainActivity.this, "Something Happened", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }
