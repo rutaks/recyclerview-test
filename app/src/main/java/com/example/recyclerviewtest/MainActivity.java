@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void insertItem(int position){
         items.add(position, new Item(R.drawable.ic_apps, "New Item At Position " + position, "Line 2"));
-        adapter.notifyDataSetChanged();
+        adapter.notifyItemInserted(position);
     }
 
     public void removeItem(int position){
         items.remove(position);
-        adapter.notifyDataSetChanged();
+        adapter.notifyItemRemoved(position);
     }
 
     public void setRecyclerView(){
