@@ -11,34 +11,17 @@ public class Item {
         this.secondText =  secondText;
     }
 
-    public Item(int ic_android) {
-    }
-
-    public void changeFirstText(String firstText){
+    void changeFirstText(String firstText){
         this.firstText = firstText;
     }
 
-    public int getImageResource() {
-        return imageResource;
-    }
+    int getImageResource() { return imageResource;}
 
-    public void setImageResource(int imageResource) {
-        this.imageResource = imageResource;
-    }
-
-    public String getFirstText() {
+    String getFirstText() {
         return firstText;
     }
 
-    public void setFirstText(String firstText) {
-        this.firstText = firstText;
-    }
-
-    public String getSecondText() {
+    String getSecondText() {
         return secondText;
-    }
-
-    public void setSecondText(String secondText) {
-        this.secondText = secondText;
     }
 }

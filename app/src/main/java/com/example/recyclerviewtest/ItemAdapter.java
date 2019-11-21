@@ -19,17 +19,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
 
-    public static class ItemViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView firstTextView;
-        public TextView secondTextView;
+     static class ItemViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView firstTextView;
+        TextView secondTextView;
 
-        public ItemViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
+        ItemViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             firstTextView = itemView.findViewById(R.id.textView_1);
@@ -49,7 +49,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         }
     }
 
-    public ItemAdapter(ArrayList<Item> items) {
+    ItemAdapter(ArrayList<Item> items) {
         this.items = items;
     }
 
@@ -57,8 +57,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
-        ItemViewHolder viewHolder = new ItemViewHolder(view, onItemClickListener);
-        return viewHolder;
+        return new ItemViewHolder(view, onItemClickListener);
     }
 
     @Override
