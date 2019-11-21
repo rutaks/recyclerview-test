@@ -105,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
     public void setList(){
         items = new ArrayList<>();
         items.add(new Item(R.drawable.ic_android, "Line 1", "Line 2"));
-        items.add(new Item(R.drawable.ic_apps, "Line 1", "Line 2"));
-        items.add(new Item(R.drawable.ic_folder, "Line 1", "Line 2"));
+        items.add(new Item(R.drawable.ic_apps, "Line 3", "Line 4"));
+        items.add(new Item(R.drawable.ic_folder, "Line 5", "Line 6"));
     }
 
     public boolean isValidNumber(String s){
