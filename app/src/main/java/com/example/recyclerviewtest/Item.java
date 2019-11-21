@@ -14,6 +14,10 @@ public class Item {
     public Item(int ic_android) {
     }
 
+    public void changeFirstText(String firstText){
+        this.firstText = firstText;
+    }
+
     public int getImageResource() {
         return imageResource;
     }
