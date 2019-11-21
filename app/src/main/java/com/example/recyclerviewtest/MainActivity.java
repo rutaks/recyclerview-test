@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Item> items;
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private ItemAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     Button buttonInsert;
@@ -71,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyItemRemoved(position);
     }
 
+    public void changeItem(int position, String message){
+        items.get(position).changeFirstText(message);
+        adapter.notifyItemChanged(position);
+    }
+
     public void setRecyclerView(){
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -79,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new ItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                changeItem(position,"Clicked");
+            }
+        });
     }
 
     public void setList(){
